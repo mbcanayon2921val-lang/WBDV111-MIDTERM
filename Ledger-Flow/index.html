@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerFlow | Invoice Operations Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="index.html">
+                <div class="brand-mark">LF</div>
+                <div class="brand-copy">
+                    <strong>LedgerFlow</strong>
+                    <span>Create invoices, add clients, set due dates, generate links and PDFs.</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a class="nav-link active" href="index.html">Dashboard</a>
+                <a class="nav-link" href="invoices.html">Invoices</a>
+                <a class="nav-link" href="clients.html">Clients</a>
+                <a class="nav-link" href="reports.html">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="site-shell">
+            <section class="hero">
+                <article class="hero-panel hero-copy">
+                    <div class="eyebrow">Clean Spreadsheet Workflow</div>
+                    <h1>Invoice operations that stay crisp from draft to payment.</h1>
+                    <p>
+                        LedgerFlow turns the rough process in your reference into a polished workspace:
+                        create the invoice, add the client, set the due date, and send a shareable link or PDF from one place.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn-primary" href="invoices.html">Create Invoice</a>
+                        <a class="btn-ghost" href="clients.html">Open Client List</a>
+                    </div>
+                </article>
+
+                <aside class="hero-panel hero-side">
+                    <div class="mini-grid" id="hero-metrics"></div>
+                    <div class="client-card">
+                        <strong>Today’s workflow</strong>
+                        <p class="muted">Use the invoice page to draft a bill, then generate a live payment link or a lightweight PDF export for client delivery.</p>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="flow-strip">
+                <article class="flow-step">
+                    <span>1</span>
+                    <strong>Create Invoice</strong>
+                    <p class="muted">Draft a line-item ready invoice with amount, due date, and status.</p>
+                </article>
+                <article class="flow-step">
+                    <span>2</span>
+                    <strong>Add Client</strong>
+                    <p class="muted">Pick an existing client or create a new account while building the invoice.</p>
+                </article>
+                <article class="flow-step">
+                    <span>3</span>
+                    <strong>Set Due Date</strong>
+                    <p class="muted">Track which invoices are due soon and which need follow-up.</p>
+                </article>
+                <article class="flow-step">
+                    <span>4</span>
+                    <strong>Generate Link / PDF</strong>
+                    <p class="muted">Send branded links or export a sharable invoice summary instantly.</p>
+                </article>
+            </section>
+
+            <section class="metrics" id="dashboard-metrics"></section>
+
+            <section class="section-grid">
+                <article class="card section-card sheet-card">
+                    <h2>Recent invoices</h2>
+
+                    <div class="sheet-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Invoice</th>
+                                    <th>Client</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                    <th>Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-invoices"></tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <aside class="card section-card">
+                    <h2>Client pulse</h2>
+
+                    <div class="client-list" id="dashboard-clients"></div>
+                </aside>
+            </section>
+
+
+        </div>
+    </main>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
