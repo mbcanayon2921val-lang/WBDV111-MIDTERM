@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LodgeHub | Cozy Cakes for Cabin Life</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">LodgeHub</div>
+        <div class="nav-main">
+            <div class="nav-links">
+                <a href="index.html" class="btn-primary">Home</a>
+                <a href="cakes.html" class="btn-primary">Cakes</a>
+                <a href="summary.html" class="btn-primary">Cart (<span id="cart-count">0</span>)</a>
+                <a href="login.html" class="btn-secondary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="cart-modal" class="modal-overlay">
+        <div class="container" style="max-width: 400px; text-align: center;">
+            <h2 id="modal-title">Confirm Selection</h2>
+            <p id="modal-msg"></p>
+            <div id="qty-box" style="display:none; margin: 1.5rem 0;">
+                <label>Quantity: </label>
+                <input type="number" id="item-qty" value="1" min="1" style="width: 80px; padding: 0.5rem;">
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <button id="modal-yes" class="btn-primary" style="flex:1;">Yes</button>
+                <button id="modal-no" class="btn-secondary" style="flex:1;">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="home" class="page active">
+            <input type="text" id="home-search" class="search-bar" placeholder="Search for your favorite cake...">
+
+            <div class="carousel-container">
+                <button id="prev-btn" class="carousel-btn"><</button>
+                <img id="carousel-img" class="carousel-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200" alt="Lodge Cake Banner">
+                <button id="next-btn" class="carousel-btn">></button>
+                <div class="carousel-overlay">
+                    <h1>Cozy Lodge Cakes</h1>
+                    <p>Rustic flavors crafted for cabin retreats and fireside gatherings.</p>
+                    <a href="cakes.html" class="btn-primary">Browse Collection</a>
+                </div>
+            </div>
+            <div id="banner-thumbs" class="banner-thumbs">
+                    <img class="thumb active" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=120" onclick="goToBanner(0)" alt="Banner 1">
+                    <img class="thumb" src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=120" onclick="goToBanner(1)" alt="Banner 2">
+                    <img class="thumb" src="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=120" onclick="goToBanner(2)" alt="Banner 3">
+                </div>
+
+            <section class="best-sellers-section">
+                <h2 class="section-title">Best Sellers</h2>
+                <div class="best-sellers-carousel">
+                    <button id="best-sellers-prev" class="product-carousel-btn" aria-label="Previous best sellers">&#10094;</button>
+                    <div id="best-sellers-track" class="best-sellers-track"></div>
+                    <button id="best-sellers-next" class="product-carousel-btn" aria-label="Next best sellers">&#10095;</button>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
