@@ -1,0 +1,84 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.section');
+    const guestlistBtn = document.getElementById('guestlist-btn');
+    const guestlistModal = document.getElementById('guestlist-info');
+    const closeModal = document.querySelector('.close-modal');
+    const buyBtns = document.querySelectorAll('.btn-buy');
+
+    // Auth functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const authForms = document.querySelectorAll('.auth-form');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+
+    // Nav functionality
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+
+            // Update active nav
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+
+            // Show target section
+            sections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === targetId) {
+                    section.classList.add('active');
+                }
+            });
+        });
+    });
+
+    // Guest list modal
+    guestlistBtn.addEventListener('click', function() {
+        guestlistModal.classList.remove('hidden');
+    });
+
+    closeModal.addEventListener('click', function() {
+        guestlistModal.classList.add('hidden');
+    });
+
+    guestlistModal.addEventListener('click', function(e) {
+        if (e.target === guestlistModal) {
+            guestlistModal.classList.add('hidden');
+        }
+    });
+
+    // Auth tab switching
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetTab = this.dataset.tab;
+
+            tabBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            authForms.forEach(form => form.classList.remove('active'));
+            document.getElementById(targetTab + '-form').classList.add('active');
+        });
+    });
+
+    // Form submissions (demo)
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Logged in successfully! Welcome back.');
+        // Nav to tickets
+        document.querySelector('a[href="#tickets"]').click();
+    });
+
+    signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Signed up successfully! Check your email.');
+        // Nav to tickets
+        document.querySelector('a[href="#tickets"]').click();
+    });
+
+    // Buy buttons (placeholder alert)
+    buyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            alert('Tickets coming soon! 🚀');
+        });
+    });
+});
