@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LodgeHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="nav" class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-building"></i>
+                LodgeHub - Home
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="book.html" class="nav-link">Book</a></li>
+                <li><a href="staff.html" class="nav-link">Staff</a></li>
+                <li><a href="history.html" class="nav-link">History</a></li>
+                <li class="nav-auth">
+                    <a href="login.html" id="loginBtn" class="nav-link">Login</a>
+                    <a href="register.html" id="regBtn" class="nav-link reg-btn">
+                        Sign Up <i class="fas fa-check-circle verified-badge"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Main Content Sections -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active" style="background: linear-gradient(rgba(0,31,63,0.85), rgba(23,162,184,0.1)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; border-radius: 0 0 40px 40px; box-shadow: 0 10px 40px rgba(0,31,63,0.10);">
+            <div class="hero" style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                <h1 style="font-size: 3.5rem; font-weight: 800; letter-spacing: -2px;">Welcome to LodgeHub</h1>
+                <p style="font-size: 1.4rem; margin-bottom: 2.5rem;">Your trusted partner in health. Professional care, verified excellence.</p>
+                <button class="cta-btn" style="background: linear-gradient(135deg, #17A2B8, #001F3F); box-shadow: 0 6px 24px rgba(23,162,184,0.25);"><i class="fas fa-calendar-check"></i> Book Appointment</button>
+            </div>
+            <div class="services" style="margin-top: 3rem;">
+                <div class="service-card" style="box-shadow: 0 8px 32px rgba(0,31,63,0.10);">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>General Checkup</h3>
+                    <p>Comprehensive health assessments.</p>
+                </div>
+                <div class="service-card" style="box-shadow: 0 8px 32px rgba(23,162,184,0.10);">
+                    <i class="fas fa-syringe"></i>
+                    <h3>Vaccinations</h3>
+                    <p>Stay protected with our vaccines.</p>
+                </div>
+                <div class="service-card" style="box-shadow: 0 8px 32px rgba(40,167,69,0.10);">
+                    <i class="fas fa-heart"></i>
+                    <h3>Cardiology</h3>
+                    <p>Expert heart care services.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Section -->
+        <section id="book" class="section" style="background: linear-gradient(120deg, #f8f9fa 80%, #e3f6f9 100%); border-radius: 32px; box-shadow: 0 8px 32px rgba(23,162,184,0.10); margin-top: 3rem;">
+            <div style="max-width: 700px; margin: 0 auto; background: white; border-radius: 24px; box-shadow: 0 8px 32px rgba(0,31,63,0.08); padding: 2.5rem 2rem;">
+                <h2 style="color: #001F3F; text-align: center; margin-bottom: 2rem;">Book an Appointment</h2>
+                <form class="book-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="date" required>
+                    <select required>
+                        <option value="">Department</option>
+                        <option>General</option>
+                        <option>Cardiology</option>
+                        <option>Pediatrics</option>
+                    </select>
+                    <textarea placeholder="Reason for visit"></textarea>
+                    <button type="submit" style="background: linear-gradient(135deg, #17A2B8, #001F3F);">Book Now</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Staff Section -->
+        <section id="staff" class="section" style="background: linear-gradient(120deg, #f8f9fa 80%, #e3f6f9 100%); border-radius: 32px; box-shadow: 0 8px 32px rgba(23,162,184,0.10); margin-top: 3rem;">
+            <div style="max-width: 900px; margin: 0 auto; background: white; border-radius: 24px; box-shadow: 0 8px 32px rgba(0,31,63,0.08); padding: 2.5rem 2rem;">
+                <h2 style="color: #001F3F; text-align: center; margin-bottom: 2rem;">Our Staff</h2>
+                <button id="availabilityBtn" class="info-btn" style="margin-bottom: 2.5rem;"><i class="fas fa-info-circle"></i> Availability</button>
+                <div class="staff-grid">
+                    <div class="staff-card" style="box-shadow: 0 8px 32px rgba(0,31,63,0.10);">
+                        <div class="staff-photo" style="background: url('https://randomuser.me/api/portraits/women/44.jpg') center/cover;"></div>
+                        <h3>Dr. Jane Smith</h3>
+                        <p class="role">Cardiologist</p>
+                        <p class="availability available"><i class="fas fa-check"></i> Available Now</p>
+                    </div>
+                    <div class="staff-card" style="box-shadow: 0 8px 32px rgba(23,162,184,0.10);">
+                        <div class="staff-photo" style="background: url('https://randomuser.me/api/portraits/men/32.jpg') center/cover;"></div>
+                        <h3>Dr. John Doe</h3>
+                        <p class="role">General Physician</p>
+                        <p class="availability"><i class="fas fa-clock"></i> Next Available: 2pm</p>
+                    </div>
+                    <div class="staff-card" style="box-shadow: 0 8px 32px rgba(40,167,69,0.10);">
+                        <div class="staff-photo" style="background: url('https://randomuser.me/api/portraits/women/65.jpg') center/cover;"></div>
+                        <h3>Dr. Emily Wilson</h3>
+                        <p class="role">Pediatrician</p>
+                        <p class="availability available"><i class="fas fa-check"></i> Available Now</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history" class="section" style="background: linear-gradient(120deg, #f8f9fa 80%, #e3f6f9 100%); border-radius: 32px; box-shadow: 0 8px 32px rgba(23,162,184,0.10); margin-top: 3rem;">
+            <div style="max-width: 700px; margin: 0 auto; background: white; border-radius: 24px; box-shadow: 0 8px 32px rgba(0,31,63,0.08); padding: 2.5rem 2rem; text-align: center;">
+                <h2 style="color: #001F3F; margin-bottom: 1.5rem;">Medical History</h2>
+                <p style="font-size: 1.2rem;">Please <strong>login</strong> to view your medical history and records.</p>
+                <button class="cta-btn" style="margin-top: 2rem; background: linear-gradient(135deg, #17A2B8, #001F3F);" onclick="document.getElementById('loginModal').style.display='block'">
+                    <i class="fas fa-sign-in-alt"></i> Login to View
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content" style="box-shadow: 0 12px 48px rgba(0,31,63,0.18); border-radius: 24px;">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2 style="color: #001F3F;">Login</h2>
+            <form class="auth-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" style="background: linear-gradient(135deg, #17A2B8, #001F3F);">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="regModal" class="modal">
+        <div class="modal-content" style="box-shadow: 0 12px 48px rgba(40,167,69,0.18); border-radius: 24px;">
+            <span class="close" id="closeReg">&times;</span>
+            <h2 style="color: #001F3F;">Sign Up</h2>
+            <form class="auth-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="reg-submit verified" style="background: linear-gradient(135deg, #28a745, #20c997);">
+                    Register <i class="fas fa-check-circle"></i> Verified
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
