@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Package - LodgeHub Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tracking-container">
+        <h1>📦 Track Your Package</h1>
+        <p>Enter your tracking ID to see live status</p>
+        
+        <div style="margin: 40px 0;">
+            <input type="text" id="trackingId" placeholder="Enter tracking ID (LHxxxxxx)" style="padding: 15px; font-size: 18px; width: 300px; border: 2px solid #ddd; border-radius: 8px;">
+            <button onclick="trackPackage()" style="padding: 15px 30px; background: #3498db; color: white; border: none; border-radius: 8px; margin-left: 10px; font-size: 16px; cursor: pointer;">Track</button>
+        </div>
+
+        <div id="trackingStatus" style="min-height: 200px;">
+            <p style="color: #999;">Enter tracking ID to see live updates</p>
+        </div>
+    </div>
+
+    <script>
+        function trackPackage() {
+            const id = document.getElementById('trackingId').value.trim();
+            const status = document.getElementById('trackingStatus');
+            
+            if (!id || !id.startsWith('LH')) {
+                status.innerHTML = '<p style="color: #e74c3c;">Invalid tracking ID</p>';
+                return;
+            }
+            
+            if (localStorage.getItem('orderId') !== id) {
+                status.innerHTML = '<p style="color: #f39c12;">Order not found in our system</p>';
+                return;
+            }
+            
+            // Live tracking animation
+            status.innerHTML = `
+                <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <div class="tracking-status" style="background: #27ae60;">✅ Order Confirmed</div>
+                    <div class="tracking-status" style="animation-delay: 0.5s;">📦 Package Picked Up</div>
+                    <div class="tracking-status" style="animation-delay: 1s; background: #f39c12;">🚚 In Transit</div>
+                    <div class="tracking-status" style="animation-delay: 1.5s;">📍 Out for Delivery</div>
+                    <div class="tracking-status" style="animation-delay: 2s; background: #27ae60;">✅ Delivered!</div>
+                </div>
+                <p style="margin-top: 30px; color: #666;">Estimated delivery: Today • Order #${id}</p>
+            `;
+        }
+
+        // Auto-track if coming from checkout
+        window.addEventListener('load', () => {
+            const savedId = localStorage.getItem('orderId');
+            if (savedId) {
+                document.getElementById('trackingId').value = savedId;
+                trackPackage();
+            }
+        });
+    </script>
+</body>
+</html>
