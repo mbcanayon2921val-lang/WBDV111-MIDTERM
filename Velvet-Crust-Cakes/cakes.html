@@ -1,0 +1,70 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LodgeHub | Cakes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">LodgeHub</div>
+        <div class="nav-main">
+            <div class="nav-links">
+                <a href="index.html" class="btn-primary">Home</a>
+                <a href="cakes.html" class="btn-primary">Cakes</a>
+                <a href="summary.html" class="btn-primary">Cart (<span id="cart-count">0</span>)</a>
+                <a href="login.html" class="btn-secondary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="cart-modal" class="modal-overlay">
+        <div class="container" style="max-width: 400px; text-align: center;">
+            <h2 id="modal-title">Confirm Selection</h2>
+            <p id="modal-msg"></p>
+            <div id="qty-box" style="display:none; margin: 1.5rem 0;">
+                <label>Quantity: </label>
+                <input type="number" id="item-qty" value="1" min="1" style="width: 80px; padding: 0.5rem;">
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <button id="modal-yes" class="btn-primary" style="flex:1;">Yes</button>
+                <button id="modal-no" class="btn-secondary" style="flex:1;">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+<section id="cakes" class="page active">
+            <h1>Cakes Collection</h1>
+            <input type="text" class="search-bar" placeholder="Search cakes..." id="shop-search">
+            
+            <div class="filter-btns" id="filter-btns"></div>
+            
+            <div class="grid" id="full-grid"></div>
+        </section>
+    </div>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+    <script>
+        // Add shop-specific search
+        document.getElementById('shop-search')?.addEventListener('input', (e) => {
+            renderCakes(e.target.value.toLowerCase());
+        });
+        
+        // Populate filter buttons from unique categories
+        const categories = [...new Set(cakeData.map(c => c.category))];
+        const filterContainer = document.getElementById('filter-btns');
+        if (filterContainer) {
+            filterContainer.innerHTML = '<button class="filter-btn btn-secondary active" data-category="">All</button>' +
+                categories.map(cat => `<button class="filter-btn btn-secondary" data-category="${cat}">${cat}</button>`).join('');
+        }
+        
+        // Filter button styles (add to script.js scope)
+        document.querySelectorAll('.filter-btn')?.forEach(btn => {
+            btn.style.cssText = 'padding:0.5rem 1rem;border:1px solid var(--accent);border-radius:20px;font-size:0.9rem;';
+        });
+    </script>
+</body>
+</html>
