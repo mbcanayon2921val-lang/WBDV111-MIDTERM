@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodstop | Industrial Taste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+    <header>
+        <div class="logo">Food <span>Stop</span></div>
+        <div class="nav-actions">
+            <button class="btn btn-outline" onclick="toggleSidebar()">Login</button>
+            <button class="btn btn-primary" onclick="scrollToSection('billing')">
+                Cart <span id="cart-count" class="cart-badge">0</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div id="billing" class="billing-panel">
+            <h3>Your Order</h3>
+            <div id="cart-items">
+                <p style="color: #888; font-style: italic;">Your cart is empty.</p>
+            </div>
+            <div class="total-row">
+                <span>Total</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">The Menu</h2>
+        <div class="menu-grid" id="menu-container">
+        </div>
+
+        <h2 class="section-title">Subscription Plans</h2>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <h3>The Grease Monkey</h3>
+                <div class="plan-price">$19.99<span style="font-size:1rem; color:#666">/mo</span></div>
+                <p>1 Burger per week</p>
+                <p>Free Fries</p>
+                <button class="btn btn-outline" style="margin-top:1rem; color:var(--dark); border-color:var(--dark)">Select</button>
+            </div>
+            <div class="plan-card featured">
+                <h3>The Industrial</h3>
+                <div class="plan-price">$49.99<span style="font-size:1rem; color:#666">/mo</span></div>
+                <p>3 Burgers per week</p>
+                <p>Free Fries & Shakes</p>
+                <p>Priority Delivery</p>
+                <button class="btn btn-primary" style="margin-top:1rem">Select</button>
+            </div>
+            <div class="plan-card">
+                <h3>The Feast</h3>
+                <div class="plan-price">$89.99<span style="font-size:1rem; color:#666">/mo</span></div>
+                <p>Unlimited Burgers</p>
+                <p>Free Sides</p>
+                <p>Private Chef Access</p>
+                <button class="btn btn-outline" style="margin-top:1rem; color:var(--dark); border-color:var(--dark)">Select</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+    <div class="sidebar" id="login-sidebar">
+        <div class="sidebar-header">
+            <h2>Member Login</h2>
+            <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+        </div>
+        <form onsubmit="event.preventDefault(); alert('Logged in!'); toggleSidebar();">
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="engineer@burger.com" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="********" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%">Access Machine</button>
+            <p style="margin-top: 1rem; font-size: 0.8rem; text-align: center;">
+                Don't have an account? <a href="#" style="color: var(--primary)">Register</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        const menuItems = [
+            { id: 1, name: "The Classic Press", price: 12.99, desc: "Double beef patty, cheddar, pickles.", icon: "🍔" },
+            { id: 2, name: "Machine Gun Bacon", price: 14.50, desc: "Crispy bacon, BBQ sauce, onion rings.", icon: "🥓" },
+            { id: 3, name: "The Blue Steel", price: 13.99, desc: "Blue cheese crumble, caramelized onions.", icon: "🧀" },
+            { id: 4, name: "Spicy Gearbox", price: 13.50, desc: "Jalapeños, spicy mayo, pepper jack.", icon: "🌶️" },
+            { id: 5, name: "The Rusty Bolt", price: 11.99, desc: "Single patty, lettuce, tomato, ketchup.", icon: "🍟" },
+            { id: 6, name: "Titanium Truffle", price: 18.00, desc: "Wagyu beef, truffle oil, arugula.", icon: "🍄" },
+        ];
+
+        let cart = [];
+
+        const menuContainer = document.getElementById('menu-container');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalEl = document.getElementById('cart-total');
+        const cartCountEl = document.getElementById('cart-count');
+
+        function renderMenu() {
+            menuContainer.innerHTML = menuItems.map(item => `
+                <div class="card">
+                    <div class="card-img">${item.icon}</div>
+                    <div class="card-body">
+                        <div class="card-title">${item.name}</div>
+                        <div class="card-desc">${item.desc}</div>
+                        <div class="card-footer">
+                            <span class="price">$${item.price.toFixed(2)}</span>
+                            <button class="btn btn-primary" onclick="addToCart(${item.id})">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(id) {
+            const item = menuItems.find(i => i.id === id);
+            cart.push(item);
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            cartCountEl.innerText = cart.length;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="color: #888; font-style: italic;">Your cart is empty.</p>';
+            } else {
+                cartItemsContainer.innerHTML = cart.map((item, index) => `
+                    <div class="billing-item">
+                        <span>${item.name}</span>
+                        <span>
+                            $${item.price.toFixed(2)} 
+                            <span style="color:red; cursor:pointer; margin-left:5px;" onclick="removeFromCart(${index})">&times;</span>
+                        </span>
+                    </div>
+                `).join('');
+            }
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotalEl.innerText = '$' + total.toFixed(2);
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('login-sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if(el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        renderMenu();
+    </script>
+</body>
+</html>
