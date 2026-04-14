@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerFlow | Reports</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="reports">
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="index.html">
+                <div class="brand-mark">LF</div>
+                <div class="brand-copy">
+                    <strong>LedgerFlow</strong>
+                    <span>Payment summaries, generated links, and export activity.</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a class="nav-link" href="index.html">Dashboard</a>
+                <a class="nav-link" href="invoices.html">Invoices</a>
+                <a class="nav-link" href="clients.html">Clients</a>
+                <a class="nav-link active" href="reports.html">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="site-shell">
+            <section class="page-heading">
+                <div class="eyebrow">Page 4</div>
+                <h1>Reports</h1>
+                <p>See what has been sent, paid, exported, or flagged so your billing workflow stays predictable.</p>
+            </section>
+
+            <section class="metrics" id="report-metrics"></section>
+
+            <section class="section-grid">
+                <article class="card section-card">
+                    <h2>Revenue summary</h2>
+
+                    <div class="report-list" id="revenue-breakdown"></div>
+                </article>
+
+                <aside class="card section-card">
+                    <h2>Generated delivery links</h2>
+
+                    <div class="report-list" id="link-list"></div>
+                </aside>
+            </section>
+
+            <section class="card sheet-card" style="margin-top: 1.2rem;">
+                <div class="sheet-toolbar">
+                    <div>
+                        <strong>Export activity</strong>
+                    </div>
+                    <div class="tiny">Use the PDF action inside invoices to trigger a downloadable text-based demo export.</div>
+                </div>
+                <div class="sheet-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Invoice</th>
+                                <th>Client</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                                <th>Link</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
