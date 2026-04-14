@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LodgeHub - Library Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1><span class="logo">LodgeHub</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-btn active">Search</a></li>
+                <li><a href="members.html" class="nav-btn">Members</a></li>
+                <li><a href="loans.html" class="nav-btn">Loans</a></li>
+                <li><a href="overdue.html" class="nav-btn info-btn">Overdue</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero home">
+            <h2>Welcome to LodgeHub</h2>
+            <p>Your vintage library management system. Discover thousands of books with our advanced search.</p>
+            <button class="cta-btn">Start Exploring</button>
+        </div>
+        
+        <section class="search-section">
+            <h3>Quick Search</h3>
+            <input type="text" id="search-input" placeholder="Enter title, author, or ISBN...">
+            <button class="card-btn" id="search-btn">Search Books</button>
+            <div id="search-results" class="grid-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="auth">
+            <a href="login.html" class="card-btn">Login</a>
+            <a href="register.html" class="card-btn">Register</a>
+        </div>
+        <p>&amp;copy; 2024 LodgeHub - Vintage Modern Library</p>
+    </footer>
+
+    <script src="utils.js"></script>
+</body>
+</html>
