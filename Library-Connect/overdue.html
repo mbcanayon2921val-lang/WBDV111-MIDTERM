@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overdue - LodgeHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1><span class="logo">LodgeHub</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-btn">Search</a></li>
+                <li><a href="members.html" class="nav-btn">Members</a></li>
+                <li><a href="loans.html" class="nav-btn">Loans</a></li>
+                <li><a href="overdue.html" class="nav-btn info-btn active">Overdue</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero urgent">
+            <h2><span class="warning">!</span> Overdue Items</h2>
+            <p>Please return these items promptly to avoid fees.</p>
+        </div>
+        
+        <div class="grid-container">
+            <div class="overdue-card">
+                <div class="card-icon overdue"></div>
+                <h3>Pride and Prejudice</h3>
+                <p>Borrower: Mike Johnson (ID: 003)</p>
+                <p class="due overdue">Due: Dec 10, 2024</p>
+                <p class="days">5 days overdue</p>
+                <button class="card-btn small">Send Reminder</button>
+            </div>
+            <div class="overdue-card">
+                <div class="card-icon overdue"></div>
+                <h3>The Catcher in the Rye</h3>
+                <p>Borrower: John Doe (ID: 001)</p>
+                <p class="due overdue">Due: Dec 05, 2024</p>
+                <p class="days">10 days overdue</p>
+                <button class="card-btn small">Send Reminder</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="auth">
+            <a href="login.html" class="card-btn">Login</a>
+            <a href="register.html" class="card-btn">Register</a>
+        </div>
+    </footer>
+
+    <script src="utils.js"></script>
+</body>
+</html>
