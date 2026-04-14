@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LodgeHub | Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">LodgeHub</div>
+        <div class="nav-main">
+            <div class="nav-links">
+                <a href="index.html" class="btn-primary">Home</a>
+                <a href="cakes.html" class="btn-primary">Cakes</a>
+                <a href="summary.html" class="btn-primary">Cart (<span id="cart-count">0</span>)</a>
+                <a href="login.html" class="btn-secondary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container centered-card">
+        <h1>Welcome to LodgeHub</h1>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Sign in to manage your cozy cake orders</p>
+        
+        <form id="login-form" style="width: 100%;">
+            <input type="email" id="login-email" placeholder="Email Address" required
+                style="width:100%; padding:1rem; border-radius:15px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.08); color:var(--text-primary); margin-bottom:1rem; font-size:1rem;">
+            
+            <input type="password" id="login-password" placeholder="Password" required
+                style="width:100%; padding:1rem; border-radius:15px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.08); color:var(--text-primary); margin-bottom:1.5rem; font-size:1rem;">
+            
+            <button type="submit" class="btn-primary" style="width:100%; padding:1rem;">Sign In</button>
+        </form>
+        
+        <div id="toast"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            if (email) {
+                fakeLogin(email);
+            } else {
+                alert('Please enter your email.');
+            }
+        });
+    </script>
+
+</body>
+</html>
