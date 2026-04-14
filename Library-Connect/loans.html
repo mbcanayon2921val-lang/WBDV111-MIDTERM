@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loans - LodgeHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1><span class="logo">LodgeHub</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-btn">Search</a></li>
+                <li><a href="members.html" class="nav-btn">Members</a></li>
+                <li><a href="loans.html" class="nav-btn active">Loans</a></li>
+                <li><a href="overdue.html" class="nav-btn info-btn">Overdue</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h2>Current Loans</h2>
+            <p>Track borrowing and return dates.</p>
+        </div>
+        
+        <div class="grid-container">
+            <div class="loan-card">
+                <div class="card-icon loan"></div>
+                <h3>Book A</h3>
+                <p>Loaned to: John Doe (ID: 001)</p>
+                <p class="due">Due: Dec 15, 2024</p>
+                <span class="status active">Active</span>
+            </div>
+            <div class="loan-card">
+                <div class="card-icon loan"></div>
+                <h3>1984</h3>
+                <p>Loaned to: Jane Smith (ID: 002)</p>
+                <p class="due">Due: Dec 20, 2024</p>
+                <span class="status active">Active</span>
+            </div>
+            <div class="loan-card">
+                <div class="card-icon loan"></div>
+                <h3>Pride and Prejudice</h3>
+                <p>Loaned to: Mike Johnson (ID: 003)</p>
+                <p class="due">Due: Dec 10, 2024</p>
+                <span class="status overdue">Overdue</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="auth">
+            <a href="login.html" class="card-btn">Login</a>
+            <a href="register.html" class="card-btn">Register</a>
+        </div>
+    </footer>
+
+    <script src="utils.js"></script>
+</body>
+</html>
