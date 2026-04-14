@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members - LodgeHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1><span class="logo">LodgeHub</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-btn">Search</a></li>
+                <li><a href="members.html" class="nav-btn active">Members</a></li>
+                <li><a href="loans.html" class="nav-btn">Loans</a></li>
+                <li><a href="overdue.html" class="nav-btn info-btn">Overdue</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h2>Our Valued Members</h2>
+            <p>Manage member accounts and borrowing history.</p>
+        </div>
+        
+        <div class="grid-container">
+            <div class="member-card">
+                <div class="card-icon members"></div>
+                <h3>John Doe</h3>
+                <p class="id">ID: 001</p>
+                <p>Active since 2023</p>
+                <p>12 books borrowed</p>
+                <button class="card-btn small">View Details</button>
+            </div>
+            <div class="member-card">
+                <div class="card-icon members"></div>
+                <h3>Jane Smith</h3>
+                <p class="id">ID: 002</p>
+                <p>Active since 2022</p>
+                <p>8 books borrowed</p>
+                <button class="card-btn small">View Details</button>
+            </div>
+            <div class="member-card">
+                <div class="card-icon members"></div>
+                <h3>Mike Johnson</h3>
+                <p class="id">ID: 003</p>
+                <p>Active since 2024</p>
+                <p>3 books borrowed</p>
+                <button class="card-btn small">View Details</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="auth">
+            <a href="login.html" class="card-btn">Login</a>
+            <a href="register.html" class="card-btn">Register</a>
+        </div>
+    </footer>
+
+    <script src="utils.js"></script>
+</body>
+</html>
