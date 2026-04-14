@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LodgeHub | Cart Summary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">LodgeHub</div>
+        <div class="nav-main">
+            <div class="nav-links">
+                <a href="index.html" class="btn-primary">Home</a>
+                <a href="cakes.html" class="btn-primary">Cakes</a>
+                <a href="summary.html" class="btn-primary">Cart (<span id="cart-count">0</span>)</a>
+                <a href="login.html" class="btn-secondary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="cart-modal" class="modal-overlay">
+        <div class="container" style="max-width: 400px; text-align: center;">
+            <h2 id="modal-title">Confirm Selection</h2>
+            <p id="modal-msg"></p>
+            <div id="qty-box" style="display:none; margin: 1.5rem 0;">
+                <label>Quantity: </label>
+                <input type="number" id="item-qty" value="1" min="1" style="width: 80px; padding: 0.5rem;">
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <button id="modal-yes" class="btn-primary" style="flex:1;">Yes</button>
+                <button id="modal-no" class="btn-secondary" style="flex:1;">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="summary" class="page active">
+            <h1>Order Summary</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="border-bottom: 2px solid var(--glass-border);">Item</th>
+                        <th style="border-bottom: 2px solid var(--glass-border);">Qty</th>
+                        <th style="border-bottom: 2px solid var(--glass-border);">Subtotal</th>
+                        <th style="border-bottom: 2px solid var(--glass-border);">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+            </table>
+            <div style="text-align: right; margin-top: 2rem;">
+                <h2>Grand Total: <span id="total-price">0.00</span></h2>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1rem;">
+                    <button onclick="clearCart()" class="btn-secondary" style="padding: 0.75rem 1.5rem;">Clear Cart</button>
+                    <button class="btn-primary" style="padding: 0.75rem 1.5rem;" onclick="alert('Proceeding to secure checkout... (Demo)')">Checkout</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
