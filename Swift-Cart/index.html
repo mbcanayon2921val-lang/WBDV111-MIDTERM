@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LodgeHub Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛍️ LodgeHub Store</h1>
+            <p>Premium resort merchandise & gifts</p>
+        </div>
+
+        <nav class="nav">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#" class="active">All Products</a></li>
+            </ul>
+        </nav>
+
+        <main class="products">
+            <h2>Browse Products</h2>
+            <div class="product-grid" id="productGrid">
+            </div>
+        </main>
+
+        <aside class="cart">
+            <h3>🛒 Shopping Cart</h3>
+            <div id="cartItems">
+                <div class="empty-cart">
+                    Your cart is empty<br>
+                    <small>Browse products to get started</small>
+                </div>
+            </div>
+            <div class="cart-total" id="cartTotal" style="display: none;">
+                <div class="total-price">$<span id="totalAmount">0</span></div>
+                <button class="checkout-btn" onclick="goToShipping()">Proceed to Checkout →</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
