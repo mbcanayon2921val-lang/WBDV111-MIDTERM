@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerFlow | Invoices</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="invoices">
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="index.html">
+                <div class="brand-mark">LF</div>
+                <div class="brand-copy">
+                    <strong>LedgerFlow</strong>
+                    <span>Invoice workspace with clean rows and clear actions.</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a class="nav-link" href="index.html">Dashboard</a>
+                <a class="nav-link active" href="invoices.html">Invoices</a>
+                <a class="nav-link" href="clients.html">Clients</a>
+                <a class="nav-link" href="reports.html">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="site-shell">
+            <section class="page-heading">
+                <div class="eyebrow">Page 2</div>
+                <h1>Invoices</h1>
+                <p>Build invoices, assign clients, set due dates, and send the next action straight from the row.</p>
+            </section>
+
+            <section class="layout-two">
+                <article class="card form-card">
+                    <h2>Create invoice</h2>
+                    <p class="form-note">Add a new invoice using an existing client or create a new one on the fly.</p>
+                    <form id="invoice-form" class="form-grid">
+                        <div class="field-group">
+                            <label for="client-select">Select client</label>
+                            <select id="client-select" class="field"></select>
+                        </div>
+                        <div class="field-group">
+                            <label for="new-client">Or add new client</label>
+                            <input id="new-client" class="field" type="text" placeholder="Northwind Trading Co.">
+                        </div>
+                        <div class="split-fields">
+                            <div class="field-group">
+                                <label for="invoice-amount">Amount</label>
+                                <input id="invoice-amount" class="field" type="number" min="0" step="0.01" placeholder="2400">
+                            </div>
+                            <div class="field-group">
+                                <label for="invoice-due-date">Due date</label>
+                                <input id="invoice-due-date" class="field" type="date">
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label for="invoice-notes">Notes</label>
+                            <input id="invoice-notes" class="field" type="text" placeholder="Website redesign milestone invoice">
+                        </div>
+                        <button class="btn-primary" type="submit">Generate Invoice Draft</button>
+                    </form>
+                </article>
+
+                <aside class="card info-card">
+                    <h2>Workflow guide</h2>
+                    <div class="report-list">
+                        <div class="report-card">
+                            <strong>Create invoice</strong>
+                            <span class="tiny">Every draft gets an invoice code, issue date, payment link, and export-ready summary.</span>
+                        </div>
+                        <div class="report-card">
+                            <strong>Add client</strong>
+                            <span class="tiny">New clients are automatically added into the client directory after invoice creation.</span>
+                        </div>
+                        <div class="report-card">
+                            <strong>Set due date</strong>
+                            <span class="tiny">Overdue and due-soon statuses update automatically based on the date you enter.</span>
+                        </div>
+                        <div class="report-card">
+                            <strong>Generate link / PDF</strong>
+                            <span class="tiny">Use the action buttons in each row to simulate delivery and export.</span>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="card sheet-card" style="margin-top: 1.2rem;">
+                <div class="sheet-toolbar">
+                    <div class="toolbar-group">
+                        <input id="invoice-search" class="toolbar-input" type="search" placeholder="Search invoice or client">
+                    </div>
+                    <div class="toolbar-group">
+                        <select id="invoice-status-filter" class="toolbar-select">
+                            <option value="all">All statuses</option>
+                            <option value="Draft">Draft</option>
+                            <option value="Sent">Sent</option>
+                            <option value="Paid">Paid</option>
+                            <option value="Overdue">Overdue</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sheet-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Invoice</th>
+                                <th>Client</th>
+                                <th>Issued</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoice-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
