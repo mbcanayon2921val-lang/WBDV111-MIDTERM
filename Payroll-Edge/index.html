@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LodgeHub - Corporate Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-building"></i> LodgeHub
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#staff" class="nav-link"><i class="fas fa-users"></i> Staff</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#timesheets" class="nav-link"><i class="fas fa-clock"></i> Timesheets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#payslips" class="nav-link"><i class="fas fa-file-invoice-dollar"></i> Payslips</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#auth" class="nav-link"><i class="fas fa-fingerprint"></i> Login/Signup</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <h1 class="hero-title">Welcome to LodgeHub Corporate</h1>
+                    <p class="hero-desc">Your secure portal for staff management, timesheets, payslips and more.</p>
+                    <a href="#staff" class="btn-cta">View Staff</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="staff" class="section">
+            <div class="container">
+                <h1 class="section-title">Staff Directory</h1>
+                <p class="section-desc">Manage your corporate team.</p>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <h3>John Doe</h3>
+                        <p>Manager</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+                    <div class="staff-card">
+                        <h3>Jane Smith</h3>
+                        <p>Developer</p>
+                        <button class="btn-view">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timesheets" class="section">
+            <div class="container">
+                <h1 class="section-title">Timesheets</h1>
+                <p class="section-desc">Track your hours efficiently.</p>
+                <div class="timesheet-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Hours</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-10-01</td>
+                                <td>8</td>
+                                <td>Approved</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="payslips" class="section">
+            <div class="container">
+                <h1 class="section-title">Payslips</h1>
+                <p class="section-desc">Access your payroll documents.</p>
+                <ul class="payslip-list">
+                    <li><a href="#">Payslip - Oct 2024 <i class="fas fa-download"></i></a></li>
+                    <li><a href="#">Payslip - Sep 2024 <i class="fas fa-download"></i></a></li>
+                </ul>
+                <button id="tax-view-btn" class="btn-info"><i class="fas fa-calculator"></i> Tax View</button>
+                <div id="tax-info" class="info-modal hidden">
+                    <div class="modal-content">
+                        <span class="close-modal">&amp;times;</span>
+                        <h2>Tax Information</h2>
+                        <p>Tax ID: 123-45-6789<br>Withholding: 25%<br>YTD Earnings: $75,000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="auth" class="section">
+            <div class="container">
+                <h1 class="section-title">Secure Login / Signup</h1>
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login"><i class="fas fa-fingerprint"></i> Login</button>
+                    <button class="tab-btn" data-tab="signup"><i class="fas fa-user-plus"></i> Signup</button>
+                </div>
+                <form id="login-form" class="auth-form active">
+                    <div class="input-group">
+                        <i class="fas fa-fingerprint input-icon"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+                </form>
+                <form id="signup-form" class="auth-form">
+                    <div class="input-group">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fas fa-user-plus"></i> Signup</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
