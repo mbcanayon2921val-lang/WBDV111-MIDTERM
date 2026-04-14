@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accommodations - Resort</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">LodgeHub</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="accommodations.html">Accommodations</a></li>
+                <li><a href="pools.html">Pools</a></li>
+                <li><a href="scenery.html">Scenery</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 class="page-title">Our Accommodations</h1>
+
+    <section class="accommodation-container">
+
+        <div class="room-card">
+            <div class="room-title">Single Room</div>
+            <div class="room-img">
+                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/687864921.jpg?k=c8311bd0f1629c404f9d7dd46b807c745c65c56c2f1d200b7abb64f2e0e0b991&o=" alt="Single Room">
+            </div>
+            <button class="book-btn">Book Now</button>
+        </div>
+
+        <div class="room-card">
+            <div class="room-title">Deluxe Room</div>
+            <div class="room-img">
+                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/687864929.jpg?k=4bda59d17db13e376d9a00d87802e96c6152a17bbe36699a72120ed6a052eff6&o=" alt="Deluxe Room">
+            </div>
+            <button class="book-btn">Book Now</button>
+        </div>
+
+        <div class="room-card">
+            <div class="room-title">Family Suite</div>
+            <div class="room-img">
+                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/687864915.jpg?k=848ef0fa887cc6d594bd60b28713ace1ba1606a822402b3d95c0ee1bf2d05ea1&o=" alt="Family Suite">
+            </div>
+            <button class="book-btn">Book Now</button>
+        </div>
+
+        <div class="room-card">
+            <div class="room-title">Couple Suite</div>
+            <div class="room-img">
+                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/687864933.jpg?k=808ceb7671d52a35ebbb7b1e3f63958799159b02653c75f5c72bc23a56f891f0&o=" alt="Couple Suite">
+            </div>
+            <button class="book-btn">Book Now</button>
+        </div>
+
+        <div class="room-card">
+            <div class="room-title">Premium Suite</div>
+            <div class="room-img">
+                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/687864977.jpg?k=4e6aba929f019ff93083237a90af91ecdaf5f590b4aac484eed1b9eb5b8f2c40&o=" alt="Premium Suite">
+            </div>
+            <button class="book-btn">Book Now</button>
+        </div>
+
+        <div class="room-card">
+            <div class="room-title">Couple Suit #2</div>
+            <div class="room-img">
+                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/687865085.jpg?k=7c443b2c5617146e4a0eddf988200ff52f58a611a00664748e60a446fac1dab2&o=" alt="Couple Suit #2">
+            </div>
+            <button class="book-btn">Book Now</button>
+        </div>
+
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="booking-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="page-title" style="margin-bottom: 20px; font-size: 24px;">Book Your Stay</h2>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="modalName">Full Name</label>
+                    <input type="text" id="modalName" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalEmail">Email</label>
+                    <input type="email" id="modalEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalCheckin">Check-in Date</label>
+                    <input type="date" id="modalCheckin" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalCheckout">Check-out Date</label>
+                    <input type="date" id="modalCheckout" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalGuests">Number of Guests</label>
+                    <input type="number" id="modalGuests" min="1" max="10" value="1" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Booking Modal Functionality
+        const modal = document.getElementById('bookingModal');
+        const bookBtns = document.querySelectorAll('.book-btn');
+        const closeBtn = document.querySelector('.close-modal');
+        const form = document.querySelector('.modal-form');
+
+        bookBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.style.display = 'block';
+                document.body.classList.add('booking-modal-open');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.classList.remove('booking-modal-open');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.classList.remove('booking-modal-open');
+            }
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate booking (alert for demo)
+            alert('Booking request submitted! We will contact you soon.');
+            modal.style.display = 'none';
+            document.body.classList.remove('booking-modal-open');
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
