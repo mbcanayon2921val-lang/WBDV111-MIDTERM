@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerFlow | Clients</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="clients">
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="index.html">
+                <div class="brand-mark">LF</div>
+                <div class="brand-copy">
+                    <strong>LedgerFlow</strong>
+                    <span>Client records synced with invoice activity.</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a class="nav-link" href="index.html">Dashboard</a>
+                <a class="nav-link" href="invoices.html">Invoices</a>
+                <a class="nav-link active" href="clients.html">Clients</a>
+                <a class="nav-link" href="reports.html">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="site-shell">
+            <section class="page-heading">
+                <div class="eyebrow">Page 3</div>
+                <h1>Clients</h1>
+                <p>Track active accounts, outstanding balances, and the next billing step from a clean linear directory.</p>
+            </section>
+
+            <section class="metrics" id="client-metrics"></section>
+
+            <section class="card sheet-card">
+                <div class="sheet-toolbar">
+                    <div class="toolbar-group">
+                        <input id="client-search" class="toolbar-input" type="search" placeholder="Search client or contact email">
+                    </div>
+                    <div class="toolbar-group inline-actions">
+                        <a class="btn-ghost" href="invoices.html">Create invoice for client</a>
+                    </div>
+                </div>
+                <div class="sheet-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Email</th>
+                                <th>Industry</th>
+                                <th>Open Invoices</th>
+                                <th>Outstanding</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="client-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
